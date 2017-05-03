@@ -1,0 +1,104 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Scheduler Manager </h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="table_basic.html#">Config option 1</a>
+              </li>
+              <li><a href="table_basic.html#">Config option 2</a>
+              </li>
+            </ul>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <a class="btn btn-w-m btn-primary" href="<%= new_scheduler_path %>">
+                <i class="fa fa-plus"></i> Create
+              </a>
+            </div>
+          </div>
+          <% if false %>
+              <div class="row m-t">
+                <div class="col-sm-6">
+                  <%= form_tag(reseller_users_path, method: :get) do %>
+                      <div class="input-group">
+                        <input type="text" name="q" value="<%= @q %>" placeholder="Search" class="input-sm form-control">
+                        <span class="input-group-btn">
+                    <%= submit_tag "Search", name: nil, class: "btn btn-sm btn-primary" %>
+                  </span>
+                      </div>
+                  <% end %>
+                </div>
+
+                <div class="col-sm-4 m-b-xs text-center">
+                  <div class="btn-group">
+                    <%= link_to 'All', request.parameters.merge({active_yn: nil}), class: 'btn btn-sm btn-white ' + (request.params[:active_yn].nil? ? 'active' : '') %>
+                    <%= link_to 'Active', request.parameters.merge({active_yn: 'Y'}), class: 'btn btn-sm btn-white ' + (request.params[:active_yn] != nil && request.params[:active_yn] == 'Y' ? 'active' : '') %>
+                    <%= link_to 'Locked', request.parameters.merge({active_yn: 'N'}), class: 'btn btn-sm btn-white ' + (request.params[:active_yn] != nil && request.params[:active_yn] == 'N' ? 'active' : '') %>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 m-b-xs">
+                  <%= render partial: 'common/per_page', object: @reseller_users, as: 'objects' %>
+                </div>
+              </div>
+          <% end %>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Interval</th>
+                <th>Class</th>
+                <th>Queue</th>
+                <th>Arguments</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @schedulers.each do |scheduler| %>
+                  <tr>
+                    <td><span class="pie"><%= scheduler[0] %></span></td>
+                    <td><%= scheduler[1]['description'] %></td>
+                    <td><%= !scheduler[1]['cron'].nil? ? scheduler[1]['cron'] : scheduler[1]['every'] %></td>
+                    <td><%= scheduler[1]['class'] %></td>
+                    <td><%= scheduler[1]['queue'] %></td>
+                    <td><%= scheduler[1]['args'] %></td>
+                    <td>
+                      <%= link_to 'Edit', edit_scheduler_path(scheduler[0]) %>
+                      <%= link_to 'Reject', scheduler_path(scheduler[0]),
+                                  method: :delete,
+                                  data: {confirm: 'Are you sure want to reject this job?'} %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <%#= will_paginate @reseller_users %>
+            </div>
+            <div class="col-lg-12 text-center">
+              <%#= page_entries_info %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

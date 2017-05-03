@@ -1,0 +1,64 @@
+<h3><%= t('recurring_jobs') %></h3>
+
+<form action="/sidekiq/scheduler/<%= params['id'] %>" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= csrf_tag %>
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">class</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="class" name="scheduler[class]" type="text" value="<%= @scheduler['class'] %>">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">every</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="every" name="scheduler[every]" type="text" value='<%= @scheduler['every'] %>'>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">Cron</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="cron" name="scheduler[cron]" type="text" value="<%= @scheduler['cron'] %>">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">queue</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="queue" name="scheduler[queue]" type="text" value="<%= @scheduler['queue'] %>">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">description</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="description" name="scheduler[description]" type="text" value="<%= @scheduler['description'] %>">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-lg-3 control-label" for="name">args</label>
+    <div class="col-lg-7">
+      <input class="form-control required" placeholder="args" name="scheduler[args]" type="text" value="<%= @scheduler['args'] %>">
+    </div>
+  </div>
+
+  {"class"=&gt;"TimeoutTransactionJob", "every"=&gt;"[\"5s\", {\"first_in\"=&gt;\"1s\"}]", "queue"=&gt;"high", "description"=&gt;"timeout transaction", "args"=&gt;""}
+  <div class="form-group">
+    <div class="col-lg-12 text-center">
+      <a href="/schedulers/timeout_transaction/edit">Cancel</a>
+      <button name="button" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+
+
+
+
