@@ -65,6 +65,6 @@ module SidekiqSchedulerManager
 end
 
 require 'sidekiq/web' unless defined?(Sidekiq::Web)
-Sidekiq::Web.register(SidekiqMonitor::Web)
+Sidekiq::Web.register(SidekiqSchedulerManager::Web)
 Sidekiq::Web.tabs['scheduler manager'] = 'schedulers'
 Sidekiq::Web.locales << File.expand_path(File.dirname(__FILE__) + "/../../web/locales")

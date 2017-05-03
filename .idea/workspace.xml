@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7071bd6b-9d26-4e0d-acf0-9b67bbee72e7" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/sidekiq/scheduler/manager.rb" afterPath="$PROJECT_DIR$/lib/sidekiq-scheduler-manager.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/sidekiq/scheduler/manager/version.rb" afterPath="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/version.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/sidekiq/scheduler/manager/web.rb" afterPath="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sidekiq-scheduler-manager.iml" afterPath="$PROJECT_DIR$/.idea/sidekiq-scheduler-manager.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec" afterPath="$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb" afterPath="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +27,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            <state relative-caret-position="-616">
+              <caret line="8" column="64" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/rubystubs24/file.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="504" column="13" lean-forward="false" selection-start-line="504" selection-start-column="13" selection-end-line="504" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -44,8 +50,8 @@
       <file leaf-file-name="sidekiq-scheduler-manager.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/sidekiq-scheduler-manager.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="0">
+              <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -61,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidekiq-scheduler-manager.gemspec" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sidekiq-scheduler-manager.gemspec" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -82,9 +88,9 @@
         <option value="$PROJECT_DIR$/lib/sidekiq/scheduler/manager/web.rb" />
         <option value="$PROJECT_DIR$/lib/sidekiq/scheduler/manager.rb" />
         <option value="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/version.rb" />
+        <option value="$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec" />
         <option value="$PROJECT_DIR$/lib/sidekiq-scheduler-manager.rb" />
         <option value="$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb" />
-        <option value="$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec" />
       </list>
     </option>
   </component>
@@ -183,24 +189,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sidekiq-scheduler-manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sidekiq-scheduler-manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sidekiq-scheduler-manager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,12 +355,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1493825343490</updated>
-      <workItem from="1493825345924" duration="1325000" />
+      <workItem from="1493825345924" duration="2086000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor">
+      <created>1493826717828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1493826717828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor">
+      <created>1493827044041</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1493827044041</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1325000" />
+    <option name="totallyTimeSpent" value="2086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -403,6 +406,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -449,26 +456,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/sidekiq-scheduler-manager.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs24/file.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="504" column="13" lean-forward="false" selection-start-line="504" selection-start-column="13" selection-end-line="504" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/sidekiq-scheduler-manager/web.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sidekiq-scheduler-manager.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+        <state relative-caret-position="-616">
+          <caret line="8" column="64" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="64" />
           <folding />
         </state>
       </provider>
