@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sidekiq/scheduler/manager/version'
+require 'sidekiq-scheduler-manager/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sidekiq-scheduler-manager"
-  spec.version       = Sidekiq::Scheduler::Manager::VERSION
+  spec.version       = SidekiqSchedulerManager::VERSION
   spec.authors       = ["vudn-job"]
   spec.email         = ["vudn.job@gmail.com"]
 

@@ -2,9 +2,9 @@
 
 # require_relative 'job_presenter'
 
-require 'sidekiq/scheduler/manager'
+require 'sidekiq-scheduler-manager'
 
-module SidekiqMonitor
+module SidekiqSchedulerManager
   module Web
     VIEW_PATH = File.expand_path('../../../web/views', __FILE__)
 
