@@ -1,4 +1,4 @@
-require "sidekiq/scheduler/manager/version"
+require "sidekiq-scheduler-manager/version"
 
 require 'sidekiq'
 require 'tilt/erb'
