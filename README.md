@@ -26,6 +26,8 @@ Or install it yourself as:
 
 ```ruby
 
+require 'sidekiq/web'
+
 require 'sidekiq-scheduler-manager/web'
 
 mount Sidekiq::Web => '/sidekiq'
