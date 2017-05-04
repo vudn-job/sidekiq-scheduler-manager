@@ -34,7 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
 
   spec.add_dependency 'hashie',          '~> 3.4'
-  spec.add_dependency 'sidekiq',         '>= 3'
+  # spec.add_dependency 'sidekiq',         '>= 3'
+  spec.add_dependency 'sidekiq-scheduler', '2.0.8'
   spec.add_dependency 'redis',           '~> 3'
   spec.add_dependency 'rufus-scheduler', '~> 3.1.8'
   spec.add_dependency 'tilt',            '>= 1.4.0'
