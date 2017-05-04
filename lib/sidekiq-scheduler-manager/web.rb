@@ -42,7 +42,7 @@ module SidekiqSchedulerManager
           Sidekiq.set_schedule(job_name, data)
         end
 
-        redirect(root_path + '/schedulers')
+        redirect(root_path + 'schedulers')
 
       end
 
@@ -70,14 +70,14 @@ module SidekiqSchedulerManager
           Sidekiq.set_schedule(job_name, data)
         end
 
-        redirect('/sidekiq/schedulers')
+        redirect(root_path + 'schedulers')
       end
 
       app.delete '/scheduler/:id' do
         # Sidekiq.set_schedule(params[:id], { noop: nil })
         schedules = Sidekiq.get_all_schedules.reject { |k, v| k == params[:id] }
         Sidekiq.schedule = schedules
-        redirect('/sidekiq/schedulers')
+        redirect(root_path + 'schedulers')
       end
 
       app.get '/scheduler/:id/reject' do
@@ -86,7 +86,7 @@ module SidekiqSchedulerManager
         # Sidekiq.schedule = schedules
 
         Sidekiq.remove_schedule(params[:id])
-        redirect('/sidekiq/schedulers')
+        redirect(root_path + 'schedulers')
       end
 
     end
