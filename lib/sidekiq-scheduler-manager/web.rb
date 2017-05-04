@@ -22,16 +22,28 @@ module SidekiqSchedulerManager
       end
 
       app.put '/scheduler/:id' do
-        @scheduler = Sidekiq.get_schedule(params[:id])
+        job_name = params[:id]
 
-        # Sidekiq.set_schedule(@scheduler['class'], { :class => @scheduler['class'],
-        #                                             :every => '["1d", {"first_in"=>"1s"}]',
-        #                                             :queue => @scheduler['class'],
-        #                                             :description => 'test'})
+        unless job_name.to_s.strip.empty?
+          @scheduler = Sidekiq.get_schedule(params[:id])
+          data = {
+              :class => params[:scheduler]['class'],
+              :queue => params[:scheduler]['queue'],
+              :description => params[:scheduler]['description'],
+              :args => params[:scheduler]['args'],
+          }
 
-        # @params = params[:scheduler]
-        Sidekiq.set_schedule(params[:id], params[:scheduler])
+          if not params[:scheduler]['cron'].to_s.strip.empty?
+            data[:cron] = params[:scheduler]['cron']
+          elsif not params[:scheduler]['every'].to_s.strip.empty?
+            data[:every] = params[:scheduler]['every']
+          end
+
+          Sidekiq.set_schedule(job_name, data)
+        end
+
         redirect('/sidekiq/schedulers')
+
       end
 
       app.get '/schedulers/new' do
@@ -39,8 +51,25 @@ module SidekiqSchedulerManager
       end
 
       app.post '/schedulers' do
-        job_name = params[:scheduler]['job_name']
-        Sidekiq.set_schedule(job_name, params[:scheduler])
+        job_name = params[:scheduler]['name']
+
+        unless job_name.to_s.strip.empty?
+          data = {
+              :class => params[:scheduler]['class'],
+              :queue => params[:scheduler]['queue'],
+              :description => params[:scheduler]['description'],
+              :args => params[:scheduler]['args'],
+          }
+
+          if not params[:scheduler]['cron'].to_s.strip.empty?
+            data[:cron] = params[:scheduler]['cron']
+          elsif not params[:scheduler]['every'].to_s.strip.empty?
+            data[:every] = params[:scheduler]['every']
+          end
+
+          Sidekiq.set_schedule(job_name, data)
+        end
+
         redirect('/sidekiq/schedulers')
       end
 
@@ -52,11 +81,11 @@ module SidekiqSchedulerManager
       end
 
       app.get '/scheduler/:id/reject' do
-        schedules = Sidekiq.get_all_schedules.reject { |k, v| k == '' }
-        Sidekiq.schedule = schedules
         # Sidekiq.set_schedule(params[:id], { noop: nil })
-        schedules = Sidekiq.get_all_schedules.reject { |k, v| k == params[:id] }
-        Sidekiq.schedule = schedules
+        # schedules = Sidekiq.get_all_schedules.reject { |k, v| k == params[:id] }
+        # Sidekiq.schedule = schedules
+
+        Sidekiq.remove_schedule(params[:id])
         redirect('/sidekiq/schedulers')
       end
 

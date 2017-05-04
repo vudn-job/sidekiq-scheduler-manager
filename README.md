@@ -9,7 +9,10 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sidekiq-scheduler-manager'
+gem 'sidekiq', '4.2.3'
+gem 'sidekiq-scheduler', '2.0.8'
+gem "sidekiq-scheduler-manager", :git => "git@github.com:vudn-job/sidekiq-scheduler-manager.git"
+
 ```
 
 And then execute:
@@ -22,11 +25,15 @@ Or install it yourself as:
 
 ## Usage
 
+```ruby
+
 require 'sidekiq/web'
 
 require 'sidekiq-scheduler-manager/web'
 
 mount Sidekiq::Web => '/sidekiq'
+
+````
 
 ## Development
 
