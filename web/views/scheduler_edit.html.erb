@@ -1,13 +1,13 @@
 <h3><%= t('recurring_jobs') %></h3>
 
-<form action="<%= root_path %>scheduler/<%= params['id'] %>" accept-charset="UTF-8" method="post">
+<form action="<%= root_path %>scheduler/<%= params[:id] %>" accept-charset="UTF-8" method="post">
   <input type="hidden" name="_method" value="put">
   <%= csrf_tag %>
 
   <div class="form-group">
     <label class="col-lg-3 control-label" for="name">Name</label>
     <div class="col-lg-7">
-      <%= @scheduler['name'] %>
+      <%= params[:id] %>
     </div>
   </div>
 
