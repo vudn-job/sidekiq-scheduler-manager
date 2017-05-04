@@ -42,7 +42,7 @@ module SidekiqSchedulerManager
           Sidekiq.set_schedule(job_name, data)
         end
 
-        redirect('/sidekiq/schedulers')
+        redirect(root_path + '/schedulers')
 
       end
 
