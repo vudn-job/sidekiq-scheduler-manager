@@ -28,7 +28,7 @@
           <td><%= scheduler[1]['queue'] %></td>
           <td><%= scheduler[1]['args'] %></td>
           <td>
-            <a class="btn btn-warn btn-xs" href="<%= root_path %>recurring-jobs/<%= URI.escape(scheduler[0]) %>/enqueue">
+            <a class="btn btn-warn btn-xs" href="<%= root_path %><%= URI.escape(scheduler[0]) %>/enqueue">
               <%= t('enqueue_now') %>
             </a>
             <a class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>">
