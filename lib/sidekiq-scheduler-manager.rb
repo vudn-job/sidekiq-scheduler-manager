@@ -4,7 +4,7 @@ require "sidekiq-scheduler-manager/version"
 # require 'sidekiq-scheduler'
 # require 'tilt/erb'
 
-require 'sidekiq-scheduler/schedule'
+require 'sidekiq-scheduler/manager'
 
 module SidekiqSchedulerManager
   # Your code goes here...
