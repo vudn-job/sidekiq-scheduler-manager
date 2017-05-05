@@ -19,33 +19,35 @@
     </thead>
 
     <tbody>
-    <% @schedulers.each do |scheduler| %>
-        <tr>
-          <td><span class="pie"><%= scheduler[0] %></span></td>
-          <td><%= scheduler[1]['description'] %></td>
-          <td><%= !scheduler[1]['cron'].nil? ? scheduler[1]['cron'] : scheduler[1]['every'] %></td>
-          <td><%= scheduler[1]['class'] %></td>
-          <td><%= scheduler[1]['queue'] %></td>
-          <td><%= scheduler[1]['args'] %></td>
-          <td>
-            <a class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>/enqueue">
-              <%= t('enqueue_now') %>
-            </a>
-            <a class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>">
-              <%= t('Edit') %>
-            </a>
-            <a data-confirm="Are you sure want to reject this job?" rel="nofollow" data-method="delete" class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>/reject">
-              <%= t('Reject') %>
-            </a>
+    <% if ! @schedulers.nil? %>
+        <% @schedulers.each do |scheduler| %>
+            <tr>
+              <td><span class="pie"><%= scheduler[0] %></span></td>
+              <td><%= scheduler[1]['description'] %></td>
+              <td><%= !scheduler[1]['cron'].nil? ? scheduler[1]['cron'] : scheduler[1]['every'] %></td>
+              <td><%= scheduler[1]['class'] %></td>
+              <td><%= scheduler[1]['queue'] %></td>
+              <td><%= scheduler[1]['args'] %></td>
+              <td>
+                <a class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>/enqueue">
+                  <%= t('enqueue_now') %>
+                </a>
+                <a class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>">
+                  <%= t('Edit') %>
+                </a>
+                <a data-confirm="Are you sure want to reject this job?" rel="nofollow" data-method="delete" class="btn btn-warn btn-xs" href="<%= root_path %>scheduler/<%= URI.escape(scheduler[0]) %>/reject">
+                  <%= t('Reject') %>
+                </a>
 
-            <!--<form action="/sidekiq/scheduler/<%= params['id'] %>" accept-charset="UTF-8" method="post">-->
-              <!--<input type="hidden" name="_method" value="delete">-->
-              <!--<%= csrf_tag %>-->
-              <!--<button name="button" type="submit" data-confirm="Are you sure want to reject this job?">Reject</button>-->
-            <!--</form>-->
+                <!--<form action="/sidekiq/scheduler/<%= params['id'] %>" accept-charset="UTF-8" method="post">-->
+                <!--<input type="hidden" name="_method" value="delete">-->
+                <!--<%= csrf_tag %>-->
+                <!--<button name="button" type="submit" data-confirm="Are you sure want to reject this job?">Reject</button>-->
+                <!--</form>-->
 
-          </td>
-        </tr>
+              </td>
+            </tr>
+        <% end %>
     <% end %>
     </tbody>
   </table>
