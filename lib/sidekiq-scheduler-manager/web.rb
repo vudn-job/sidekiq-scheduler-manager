@@ -36,7 +36,16 @@ module SidekiqSchedulerManager
           if not params[:scheduler]['cron'].to_s.strip.empty?
             data[:cron] = params[:scheduler]['cron']
           elsif not params[:scheduler]['every'].to_s.strip.empty?
-            data[:every] = params[:scheduler]['every']
+            every = params[:scheduler]['every'].to_s.strip
+            if every.include?('[')
+              begin
+                data[:every] = JSON.parse(every)
+              rescue JSON::ParserError => e
+                redirect "#{root_path}scheduler/#{params[:id]}"
+              end
+            else
+              data[:every] = every
+            end
           end
 
           Sidekiq.set_schedule(job_name, data)

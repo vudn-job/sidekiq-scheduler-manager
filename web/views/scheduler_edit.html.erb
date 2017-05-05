@@ -28,7 +28,7 @@
   <div class="form-group">
     <label class="col-lg-3 control-label" for="name">every</label>
     <div class="col-lg-7">
-      <input class="form-control required" placeholder="every" name="scheduler[every]" type="text" value='<%= @scheduler['every'] %>'>
+      <input class="form-control required" placeholder="every" name="scheduler[every]" type="text" value='<%= @scheduler['every'].is_a?(Array) ? JSON.unparse(@scheduler['every']) : @scheduler['every'] %>'>
     </div>
   </div>
 
