@@ -33,6 +33,20 @@ module SidekiqSchedulerManager
               :args => params[:scheduler]['args'],
           }
 
+          # args
+          if not params[:scheduler]['args'].to_s.strip.empty?
+            args = params[:scheduler]['args'].to_s.strip
+            if args.include?('[')
+              begin
+                data[:args] = JSON.parse(args)
+              rescue JSON::ParserError => e
+                redirect "#{root_path}scheduler/#{params[:id]}"
+              end
+            else
+              data[:args] = args
+            end
+          end
+
           if not params[:scheduler]['cron'].to_s.strip.empty?
             data[:cron] = params[:scheduler]['cron']
           elsif not params[:scheduler]['every'].to_s.strip.empty?
@@ -72,7 +86,16 @@ module SidekiqSchedulerManager
           if not params[:scheduler]['cron'].to_s.strip.empty?
             data[:cron] = params[:scheduler]['cron']
           elsif not params[:scheduler]['every'].to_s.strip.empty?
-            data[:every] = params[:scheduler]['every']
+            every = params[:scheduler]['every'].to_s.strip
+            if every.include?('[')
+              begin
+                data[:every] = JSON.parse(every)
+              rescue JSON::ParserError => e
+                redirect "#{root_path}schedulers/new"
+              end
+            else
+              data[:every] = every
+            end
           end
 
           Sidekiq.set_schedule(job_name, data)
