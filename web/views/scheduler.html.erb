@@ -3,10 +3,17 @@
 <div class="table_container">
   <table class="table table-hover table-bordered table-striped table-white">
     <thead>
-
-    <a class="btn btn-warn btn-xs" href="schedulers/new">
-      <%= t('Create') %>
-    </a>
+    <tr>
+      <a class="btn btn-warn btn-xs" href="schedulers/new">
+        <%= t('Create') %>
+      </a>&nbsp;
+      <a class="btn btn-warn btn-xs" href="schedulers/export">
+        <%= t('Export') %>
+      </a>&nbsp;
+      <a class="btn btn-warn btn-xs" href="schedulers/import">
+        <%= t('Import') %>
+      </a>
+    </tr>
     <tr>
       <th><%= t('name') %></th>
       <th><%= t('description') %></th>

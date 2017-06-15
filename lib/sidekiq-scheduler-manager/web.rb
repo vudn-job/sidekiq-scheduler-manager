@@ -140,6 +140,31 @@ module SidekiqSchedulerManager
         redirect "#{root_path}schedulers"
       end
 
+      app.get '/schedulers/export' do
+        schedulers = Sidekiq.get_all_schedules
+        hash={}
+        schedulers.each do |key, value|
+          hash[key] = value
+        end
+        File.open("scheduler_backup.json", "wb") { |file| file.puts JSON.pretty_generate(hash) }
+
+        # send_data JSON.pretty_generate(hash), filename: "schedule.json", disposition: "attachment", :content_type => 'application/json'
+        redirect "#{root_path}schedulers"
+      end
+
+      app.get '/schedulers/import' do
+        file = File.read('scheduler_backup.json')
+        data_hash = JSON.parse(file)
+
+        data_hash.each do |job_name, data|
+          unless job_name.to_s.strip.empty?
+            Sidekiq.set_schedule(job_name, data)
+          end
+        end
+
+        redirect "#{root_path}schedulers"
+      end
+
     end
   end
 end
