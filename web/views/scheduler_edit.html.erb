@@ -42,7 +42,7 @@
   <div class="form-group">
     <label class="col-lg-3 control-label" for="name">args</label>
     <div class="col-lg-7">
-      <input class="form-control required" placeholder="args" name="scheduler[args]" type="text" value="<%= @scheduler['args'] %>">
+      <input class="form-control required" placeholder="args" name="scheduler[args]" type="text" value='<%= @scheduler['args'].is_a?(Array) ? JSON.unparse(@scheduler['args']) : @scheduler['args'] %>'>
     </div>
   </div>
 
