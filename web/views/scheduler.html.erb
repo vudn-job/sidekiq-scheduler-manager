@@ -4,15 +4,17 @@
   <table class="table table-hover table-bordered table-striped table-white">
     <thead>
     <tr>
-      <a class="btn btn-warn btn-xs" href="schedulers/new">
-        <%= t('Create') %>
-      </a>&nbsp;
-      <a class="btn btn-warn btn-xs" href="schedulers/export">
-        <%= t('Export') %>
-      </a>&nbsp;
-      <a class="btn btn-warn btn-xs" href="schedulers/import">
-        <%= t('Import') %>
-      </a>
+      <form action="<%= root_path %>schedulers/import" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
+        <%= csrf_tag %>
+        <a class="btn" href="schedulers/new">
+          <%= t('Create') %>
+        </a>
+        <a class="btn" href="schedulers/export">
+          <%= t('Export') %>
+        </a>
+        <label for="file" class="btn">Import</label>
+        <input type="file" name="file" id="file" style="visibility:hidden;" onchange="this.form.submit()" />
+      </form>
     </tr>
     <tr>
       <th><%= t('name') %></th>
